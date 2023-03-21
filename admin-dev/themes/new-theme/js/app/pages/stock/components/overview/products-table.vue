@@ -48,15 +48,6 @@
             {{ trans('title_reference') }}
           </PSSort>
         </th>
-        <th>
-          <PSSort
-            order="supplier"
-            @sort="sort"
-            :current-sort="currentSort"
-          >
-            {{ trans('title_supplier') }}
-          </PSSort>
-        </th>
         <th class="text-center">
           {{ trans('title_status') }}
         </th>

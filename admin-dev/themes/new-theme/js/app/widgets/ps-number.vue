@@ -33,7 +33,10 @@
       class="form-control"
       :class="{ danger }"
       :value="value"
-      placeholder="0"
+      :name="name"
+      :placeholder="placeholder"   
+      :pattern="pattern"
+      :step="step"
       @keyup="onKeyup($event)"
       @focus="focusIn"
       @blur.native="focusOut($event)"
@@ -60,6 +63,22 @@
       value: {
         type: [Number, String],
         default: 0,
+      },
+      name: {
+        type: String,
+        default: '',
+      },
+      placeholder: {
+        type: String,
+        default: '0',
+      },
+      pattern: {
+        type: String,
+        default: '',
+      },
+      step: {
+        type: String,
+        default: '1',
       },
       danger: {
         type: Boolean,

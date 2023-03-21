@@ -144,10 +144,10 @@ export const updateProductQty = ({commit}, payload) => {
 
 export const updateQtyByProductId = ({commit}, payload) => {
   const {url} = payload;
-  const {delta} = payload;
+  const {delta, cost} = payload;
 
   Vue.http.post(url, {
-    delta,
+    delta, cost
   }).then((res) => {
     commit(types.UPDATE_PRODUCT, res.body);
     EventBus.$emit('displayBulkAlert', 'success');

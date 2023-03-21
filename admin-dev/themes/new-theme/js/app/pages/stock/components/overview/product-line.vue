@@ -48,9 +48,6 @@
     <td>
       {{ reference }}
     </td>
-    <td>
-      {{ product.supplier_name }}
-    </td>
     <td
       v-if="product.active"
       class="text-sm-center"
@@ -106,7 +103,7 @@
       >!</span>
     </td>
     <td class="qty-spinner">
-      <Spinner
+      <SpinnerExtra
         :product="product"
         @updateProductQty="updateProductQty"
       />
@@ -119,7 +116,7 @@
   import PSMedia from '@app/widgets/ps-media';
   import ProductDesc from '@app/pages/stock/mixins/product-desc';
   import {EventBus} from '@app/utils/event-bus';
-  import Spinner from '@app/pages/stock/components/overview/spinner';
+  import SpinnerExtra from '@app/pages/stock/components/overview/spinnerextra';
 
   export default {
     props: {
@@ -182,6 +179,8 @@
           product_id: productToUpdate.product.product_id,
           combination_id: productToUpdate.product.combination_id,
           delta: productToUpdate.delta,
+          cost: productToUpdate.cost,
+
         };
         this.$store.dispatch('updateProductQty', updatedProduct);
         if (productToUpdate.delta) {
@@ -205,7 +204,7 @@
       bulkEdition: false,
     }),
     components: {
-      Spinner,
+      SpinnerExtra,
       PSMedia,
       PSCheckbox,
     },
